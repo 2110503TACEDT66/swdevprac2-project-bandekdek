@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body >
+      <body className='bg-gradient-to-tr from-red-600 from-10% to-amber-800 to-90%'>
         <TopMenu/>
         {children}
       </body>
