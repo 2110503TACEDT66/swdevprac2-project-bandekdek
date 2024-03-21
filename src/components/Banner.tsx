@@ -15,7 +15,7 @@ export default function Banner () {
                 <h3 className="text-2xl font-serif text-white  bg-black/[.50] p-2 w-fit mx-auto rounded-md">Come get your booster today</h3>
             </div>
 
-            <Link href='/reservation' className='absolute bottom-0 right-0 m-10'>
+            <Link href='/reservation' className='absolute bottom-0 sm:right-0 m-10  left-[50%]' >
                 <Button variant="outlined" size="large" color="error"  className="p-5 font-bold" >
                     Make Your Reservation
                 </Button>            
