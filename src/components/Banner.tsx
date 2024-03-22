@@ -15,13 +15,11 @@ export default function Banner () {
                 <h3 className="text-2xl font-serif text-white  bg-black/[.50] p-2 w-fit mx-auto rounded-md">Come rent your car today</h3>
             </div>
 
-            <Link href='/reservation' className='w-fit absolute left-0 right-0 bottom-0 mb-10 mx-auto md:ml-auto md:mr-10' >
-                <Button variant="outlined" size="large" color="error"  className="p-5 font-bold" >
+            <Link href='/reservation' className='w-fit absolute left-0 right-0 bottom-[22vh] md:bottom-0 mb-10 mx-auto md:ml-auto md:mr-10' >
+                <Button variant="outlined" size="large" color="error"  className="p-5 font-bold bg-black bg-opacity-20" >
                     Make Your Reservation
                 </Button>            
             </Link>
-
-
         </div>
     )
 }
