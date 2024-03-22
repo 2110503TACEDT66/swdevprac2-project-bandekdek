@@ -1,19 +1,25 @@
+import axios from 'axios';
+
 export default async function userLogIn(userEmail:string, userPassword:string){
-    const response = await fetch(`${process.env.BACKEND_URL}/api/v1/auth/login`, {
+
+    const response = await axios({
         method: "POST",
-        headers: {
-            "Content-Type" : "application/json",
-        },
-        body: JSON.stringify({
+        url: `${process.env.BACKEND_URL}/api/v1/auth/login`, 
+        data: JSON.stringify({
             email: userEmail,
             password: userPassword,
         }),
+        headers: {
+            "Content-Type" : "application/json",
+        },
     })
 
-    if(!response.ok){
+    if(!(response.status >= 200 && response.status < 300)){
+        console.log(response.status)
         throw new Error("Failed to login")
     }
-    return await response.json();
+    console.log(response.data)
+    return response.data;
 }
 
 //test account
