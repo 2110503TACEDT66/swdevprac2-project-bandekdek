@@ -23,5 +23,5 @@ export default async function userLogIn(userEmail:string, userPassword:string){
 }
 
 //test account
-//u: testusers@gmail.com
-//p: 123456
+//u: testuser1@gmail.com
+//p: TE5st@r+
