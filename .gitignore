@@ -1,5 +1,15 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+#cypress
+# /cypress
+# src/components/*.cy.tsx
+# cypress.config.ts
+
+#jest
+# /__test__
+# jest.config.js
+# jest.setup.js
+
 # dependencies
 /node_modules
 /.pnp
