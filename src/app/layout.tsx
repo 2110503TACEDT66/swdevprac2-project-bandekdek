@@ -19,7 +19,7 @@ export default async function RootLayout({
   const nextAuthSession = await getServerSession(authOptions);
   return (
     <html lang="en">
-      <body className='bg-gradient-to-tr from-red-600 from-10% to-amber-800 to-90%'>
+      <body className='bg-gradient-to-tl from-red-700 from-20% via-amber-600 to-purple-700 to-90%' >
         <NextAuthProvider  session={nextAuthSession}>
           <TopMenu/>
           {children}          
