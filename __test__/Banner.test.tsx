@@ -36,12 +36,17 @@ describe('Banner', ()=>{
 
     it('should have an image', async ()=>{
         const bannerImage = screen.getByRole('img');
-        expect(bannerImage).toBeInTheDocument()
+        expect(bannerImage).toBeInTheDocument();
     })
 
     it("should display user's name", ()=>{
         const userText = screen.getByTestId("welcome");
-        expect(userText).toBeInTheDocument();
+        expect(userText).toHaveTextContent("Welcome Tester");
+    })
+
+    it("should have a button", ()=>{
+        const button = screen.getByText("Make Your Reservation");
+        expect(button).toBeInTheDocument();
     })
 
 })
