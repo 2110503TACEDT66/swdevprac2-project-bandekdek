@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default async function userSignUp(formData) {
+export default async function userSignUp(formData: Object) {
   const response = await axios({
     method: "POST",
     url: `${process.env.BACKEND_URL}/api/v1/auth/register`,
