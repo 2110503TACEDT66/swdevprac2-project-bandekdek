@@ -47,6 +47,11 @@ export default function page() {
           </button>
         </div>
       </form>
+      <div className="text-xl text-center">
+        <Link href={"/signUp"}>
+          <span className="hover:bg-white/[0.5]">Or Register here</span>
+        </Link>
+      </div>
     </div>
   );
 }

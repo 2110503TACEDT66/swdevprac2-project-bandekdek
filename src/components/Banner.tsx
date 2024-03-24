@@ -28,7 +28,6 @@ export default function Banner() {
           className="z-30 absolute top-20
                  right-10 font-bold text-white text-2xl"
         >
-          {" "}
           Welcome {session.user.data.name}
         </div>
       ) : null}

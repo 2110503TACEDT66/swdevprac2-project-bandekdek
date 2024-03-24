@@ -1,7 +1,8 @@
 "use client";
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import axios from "axios";
 import userSignUp from "@/libs/userSignUp";
+import Link from "next/link";
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -11,14 +12,14 @@ const RegistrationForm = () => {
     telephone: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const response = await userSignUp(formData);
@@ -33,28 +34,28 @@ const RegistrationForm = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Name"
+          placeholder="Name..."
           name="name"
           value={formData.name}
           onChange={handleChange}
         />
         <input
           type="email"
-          placeholder="Email"
+          placeholder="Email..."
           name="email"
           value={formData.email}
           onChange={handleChange}
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Password..."
           name="password"
           value={formData.password}
           onChange={handleChange}
         />
         <input
           type="string"
-          placeholder="telephone"
+          placeholder="Telephone..."
           name="telephone"
           value={formData.telephone}
           onChange={handleChange}
