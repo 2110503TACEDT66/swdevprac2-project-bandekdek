@@ -7,6 +7,7 @@ import { useSession } from "next-auth/react";
 export default function Banner() {
   const { data: session } = useSession();
 
+
   return (
     <div className="p-5 m-0 w-[100vw] h-[100vh] block relative">
       <Image
@@ -29,6 +30,7 @@ export default function Banner() {
                  right-10 font-bold text-white text-2xl"
         >
           Welcome {session.user.data.name}
+
         </div>
       ) : null}
       <Link
