@@ -20,6 +20,7 @@ export default function page() {
     });
     if (!res?.error) {
       router.push("/");
+      router.refresh();
     } else {
       console.log("Error /signIn/page.tsx" + res.error);
     }
