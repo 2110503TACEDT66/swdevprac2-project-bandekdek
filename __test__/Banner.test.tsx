@@ -12,7 +12,7 @@ const Wrapper = ({ children, session }: WrapperProps) => (
     <SessionProvider session={session}>{children}</SessionProvider>
 );
 
-const mockSession: Session = {
+const mockSession = {
     user: {
         data: {
             _id: '123',
@@ -23,7 +23,6 @@ const mockSession: Session = {
         }
     }
 };
-
 
 describe('Banner', ()=>{
 
