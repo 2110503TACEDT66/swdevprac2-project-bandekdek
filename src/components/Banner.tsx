@@ -15,7 +15,7 @@ export default function Banner () {
                 <h3 className="text-2xl font-serif text-white  bg-black/[.50] p-2 w-fit mx-auto rounded-md">Come rent your car today</h3>
             </div>
             {
-                session? <div className='z-30 absolute top-20
+                session? <div data-testid="welcome" className='z-30 absolute top-20
                  right-10 font-bold text-white text-2xl'> Welcome {session.user.data.name}</div> : null
             }
             <Link href='/reservation' className='w-fit absolute left-0 right-0 bottom-[22vh] md:bottom-0 mb-10 mx-auto md:ml-auto md:mr-10' >
