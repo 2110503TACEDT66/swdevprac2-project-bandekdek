@@ -5,14 +5,16 @@ import { signIn } from "next-auth/react";
 import { revalidateTag } from "next/cache";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function page() {
   const router = useRouter();
   const email = useRef("");
   const pass = useRef("");
+  const [isLogin, setIsLogin] = useState(true);
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLogin(true);
     const res = await signIn("credentials", {
       email: email.current,
       password: pass.current,
@@ -22,6 +24,7 @@ export default function page() {
       router.push("/");
       router.refresh();
     } else {
+      setIsLogin(false);
       console.log("Error /signIn/page.tsx" + res.error);
     }
   };
@@ -64,6 +67,7 @@ export default function page() {
             <span className="hover:bg-white/[0.5] underline text-white">Or Register here</span>
           </Link>
         </div>
+
       </div>
 
     </div>
