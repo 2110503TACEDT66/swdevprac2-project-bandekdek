@@ -4,14 +4,16 @@ import ShopCard from "./ShopCard";
 export default async function ShopCatalog({shopData}:{shopData:rentals}){
     return (
         <div className=''>
-            <div className='flex flex-wrap justify-start items-center'>
+            <div className='grid sm:grid-cols-4 grid-cols-1 gap-y-[45px] pt-[20px]'>
                 {
                     shopData.data.map((shopItem:rentalProvider)=>(
-                        <Link href={`/shop/${shopItem._id}`} className="w-1/5 m-[20px]">
-                            <ShopCard shopItem={shopItem}></ShopCard>
-                        </Link>
+                        <div className="m-auto">
+                            <Link href={`/shop/${shopItem._id}`} className="w-1/5">
+                                <ShopCard shopItem={shopItem}></ShopCard>
+                            </Link>
+                        </div>
                     ))
-                }                
+                }              
             </div>
         </div>
     )

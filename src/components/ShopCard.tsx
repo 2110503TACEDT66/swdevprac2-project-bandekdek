@@ -3,10 +3,12 @@ import { ClassNames } from "@emotion/react"
 import Image from "next/image"
 
 export default function ShopCard({shopItem}:{shopItem:rentalProvider}){
+    console.log(shopItem.picture)
+
     return (
-        <div className="w-[200px] sm:w-[300px] h-[350px] rounded-lg shadow-lg bg-black bg-opacity-40 text-white">
+        <div className="w-[300px] h-[350px] rounded-lg shadow-lg bg-black bg-opacity-40 text-white">
             <div className="w-full h-[47%] relative rounded-t-lg">
-                <Image src={"/cars/accord.jpg"}
+                <Image src={shopItem.picture?shopItem.picture:"/cars/accord.jpg"}
                     alt={`${shopItem.name} image`}
                     fill={true}
                     className='object-cover rounded-t-lg bg-white bg-opacity-0'

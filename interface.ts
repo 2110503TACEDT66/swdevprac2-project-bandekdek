@@ -25,6 +25,7 @@ interface rentals {
 }
 interface rentalProvider {
   _id: string;
+  picture: string;
   name: string;
   address: string;
   cost: number;
