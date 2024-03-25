@@ -6,8 +6,7 @@ import { useSession } from "next-auth/react";
 
 export default function Banner() {
   const { data: session } = useSession();
-
-
+  // console.log('In Banner ' + JSON.stringify(session));
   return (
     <div className="p-5 m-0 w-[100vw] h-[100vh] block relative">
       <Image
@@ -25,7 +24,7 @@ export default function Banner() {
         </h3>
       </div>
       {session ? (
-        <div
+        <div id="username"
           className="z-30 absolute top-20
                  right-10 font-bold text-white text-2xl"
         >
@@ -37,14 +36,9 @@ export default function Banner() {
         href="/reservation"
         className="w-fit absolute left-0 right-0 bottom-[22vh] md:bottom-0 mb-10 mx-auto md:ml-auto md:mr-10"
       >
-        <Button
-          variant="outlined"
-          size="large"
-          color="error"
-          className="p-5 font-bold bg-black bg-opacity-20"
-        >
-          Make Your Reservation
-        </Button>
+          <button className="btn btn-outline btn-error btn-lg p-5 font-bold bg-black bg-opacity-50">
+            Make Your Reservation
+          </button>
       </Link>
     </div>
   );

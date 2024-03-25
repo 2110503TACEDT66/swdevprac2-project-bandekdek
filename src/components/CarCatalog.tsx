@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Card from '@/components/Card'
 
 export default async function CarCatalog() {
     const cars:Car[] = [{model:"Honda Civic", img:'/cars/civic.jpg', dayRate:1000},
@@ -7,15 +7,16 @@ export default async function CarCatalog() {
     { model:"Tesla Model 3", img:'/cars/tesla.jpg', dayRate:2000}]
 
     return(
-         <div className="m-[20px] flex flex-row content-around
-        justify-around flex-wrap p-[10px]">
-            {
-                cars.map((carItem:Car)=>(
-               //    <Link href={`/hospital/${hosItem.id}`} className="w-1/5">
-                        <Card carItem={carItem}/>
-            //    {/* </Link> */}
-                ))
-            }
+         <div className='p-10'>
+            <h1 className="text-4xl font-bold text-white my-[30px]">Our Top Cars</h1>
+            <div className='flex flex-row content-around justify-around flex-wrap bg-gradient-to-tl shadow-lg rounded-lg from-red-700 from-20% via-amber-600 to-purple-700 to-90%'>
+                {
+                    cars.map((carItem:Car)=>(
+                            <Card carItem={carItem}/>
+                    ))
+                }                
+            </div>
         </div>
+        
     )
 }
