@@ -1,21 +1,20 @@
 
 import { ClassNames } from "@emotion/react"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function ShopCard({shopItem}:{shopItem:rentalProvider}){
-    console.log(shopItem.picture)
-
     return (
-        <div className="w-[300px] h-[350px] rounded-lg shadow-lg bg-black bg-opacity-40 text-white">
+        <div className="relative w-[300px] h-[400px] rounded-lg shadow-xl bg-black bg-opacity-40 text-white">
             <div className="w-full h-[47%] relative rounded-t-lg">
-                <Image src={shopItem.picture?shopItem.picture:"/cars/accord.jpg"}
+                <Image src={shopItem.picture}
                     alt={`${shopItem.name} image`}
                     fill={true}
                     className='object-cover rounded-t-lg bg-white bg-opacity-0'
                 />
             </div>
             <div className="w-full h-[10%] p-[10px] text-2xl font-bold">{shopItem.name}</div>
-            <table className="mt-5 w-full">
+            <table className="mt-1 w-full">
                 <tbody className="bg-500">
                     <tr className="">
                         <td className="pl-3 text-nowrap"><div className="w-full h-[15%] pl-[10px] text-lg text-left">Cost :</div></td>
@@ -31,6 +30,11 @@ export default function ShopCard({shopItem}:{shopItem:rentalProvider}){
                     </tr>
                 </tbody>
             </table>
+            <Link href={`/reservation?id=${shopItem._id}`} className="absolute left-0 bottom-0 ">
+                <button className="rounded-md bg-red-500 hover:bg-red-800 m-3 px-2.5 py-2 shadow-sm text-white">
+                    Select this shop
+                </button>
+            </Link>
         </div>
     )
 }
