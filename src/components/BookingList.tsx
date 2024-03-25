@@ -2,9 +2,11 @@
 import { MdDeleteOutline } from "react-icons/md";
 import { TiCancel } from "react-icons/ti";
 import { FaRegEdit, FaRegSave } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import deleteBooking from "@/libs/deleteBooking";
 import updateBooking from "@/libs/updateBooking";
+import { useRouter } from "next/navigation";
+
 export default function BookingList({
   bookings,
   token,
@@ -14,6 +16,7 @@ export default function BookingList({
 }) {
   const [form, setForm] = useState({});
   const [editID, setEditID] = useState("");
+  const router = useRouter();
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
@@ -26,6 +29,7 @@ export default function BookingList({
   async function handleDel(id: string) {
     try {
       await deleteBooking(token, id);
+      router.refresh();
     } catch (error) {
       console.log(error);
     }
@@ -38,9 +42,8 @@ export default function BookingList({
 
   async function handleSave(id: string) {
     try {
-      await updateBooking(token, id);
-      console.log("Updated");
-
+      await updateBooking(token, id, form);
+      router.refresh();
       setEditID("");
     } catch (error) {
       console.log(error);
