@@ -8,7 +8,7 @@ export default async function CarCatalog() {
 
     return(
          <div className='p-10'>
-            <h1 className="text-4xl font-bold text-white my-[30px]">Our Top Cars</h1>
+            <h1 className="text-5xl font-bold text-white my-[30px]">Our Top Cars</h1>
             <div className='flex flex-row content-around justify-around flex-wrap bg-gradient-to-tl shadow-lg rounded-lg from-red-700 from-20% via-amber-600 to-purple-700 to-90%'>
                 {
                     cars.map((carItem:Car)=>(
