@@ -18,11 +18,16 @@ export default async function TopMenu() {
       <div className="flex flex-row sm:ml-3 ml-0">
         <TopMenuItem title="Car catalogs" item="Cars" pageRef="/cars" />
         <TopMenuItem title="Shop catalogs" item="Shops" pageRef="/shops" />
-        <TopMenuItem
-          title="Sign out"
-          item="Sign out"
-          pageRef="/api/auth/signout"
-        />
+
+        {session ? (
+          <TopMenuItem
+            title="Sign out"
+            item="Sign out"
+            pageRef="/api/auth/signout"
+          />
+        ) : (
+          ""
+        )}
       </div>
       <div className="flex flex-row mr-3 sm:mr-0">
         <TopMenuItem
