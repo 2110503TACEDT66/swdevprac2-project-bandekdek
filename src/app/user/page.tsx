@@ -8,6 +8,7 @@ import BookingList from "@/components/BookingList";
 export default async function user() {
   const session = await getServerSession(authOptions);
   var profile, createdAt, bookings: Bookings;
+
   if (!session) {
     // console.log(session);
     return;
@@ -21,6 +22,7 @@ export default async function user() {
       {session && (
         <main className="mt-[70px] flex justify-center">
           {/* <div className="text-2xl">{profile.data.name}</div>
+
           <table className="border-separate table-auto border-spacing-2">
             <tbody>
               <tr>
@@ -62,6 +64,7 @@ export default async function user() {
             </div>
           </div>
         </main>
+
       )}
 
       <BookingList bookings={bookings} token={session?.user.token} />

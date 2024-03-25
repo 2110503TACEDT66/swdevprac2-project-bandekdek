@@ -15,7 +15,7 @@ interface Booking {
   user: string;
   car: string;
   daySpend: number;
-  rentalProvider: rentalProvider;
+  rentalProvider: any;
   createdAt: string;
 }
 interface rentalProvider {

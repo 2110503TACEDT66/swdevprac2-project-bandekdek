@@ -12,9 +12,10 @@ export default function BookingList({
   token,
 }: {
   bookings: Bookings;
-  token: string;
+  token: string ;
 }) {
   const [form, setForm] = useState<Booking>({
+
     _id: "",
     bookingDate: "",
     user: "",
@@ -29,6 +30,7 @@ export default function BookingList({
     },
     createdAt: "",
   });
+
   const [editID, setEditID] = useState("");
   const router = useRouter();
 
@@ -65,6 +67,7 @@ export default function BookingList({
         tel: "",
       },
       createdAt: "",
+
     });
   }
 

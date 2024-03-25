@@ -20,7 +20,6 @@ describe('logging in', () => {
     it('should be able to log out', ()=> {
         cy.get('[title="Sign out"]').click();  
         cy.get('#submitButton').click();
-        cy.get('[title="Home page"]').click();
         cy.url().should('eq', 'http://localhost:3000/');
         cy.get('#username').should('not.exist')
     })
