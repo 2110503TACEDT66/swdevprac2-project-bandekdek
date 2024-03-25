@@ -33,18 +33,20 @@ export default function page() {
 
       <form onSubmit={onSubmit} className="p-2 flex flex-col gap-3">
         <InputBox
+          id="email"
           name="email"
           labelText="email"
           onChange={(e) => (email.current = e.target.value)}
         />
         <InputBox
+          id="password"
           name="password"
           type="password"
           labelText="Password"
           onChange={(e) => (pass.current = e.target.value)}
         />
         <div className="flex items-center justify-center mt-2 gap-2">
-          <button type="submit" className="w-28 hover:bg-white/[0.5]">
+          <button id="signin" type="submit" className="w-28 hover:bg-white/[0.5]">
             Sign In
           </button>
         </div>

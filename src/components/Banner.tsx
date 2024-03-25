@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 
 export default function Banner() {
   const { data: session } = useSession();
+  // console.log('In Banner ' + JSON.stringify(session));
 
   return (
     <div className="p-5 m-0 w-[100vw] h-[100vh] block relative">
@@ -24,7 +25,7 @@ export default function Banner() {
         </h3>
       </div>
       {session ? (
-        <div
+        <div id="username"
           className="z-30 absolute top-20
                  right-10 font-bold text-white text-2xl"
         >

@@ -4,7 +4,9 @@
 # /cypress
 # src/components/*.cy.tsx
 # cypress.config.ts
-
+/cypress/e2e/1-getting-started
+/cypress/e2e/2-advanced-examples
+/cypress/component
 #jest
 # /__test__
 # jest.config.js
