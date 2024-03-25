@@ -11,10 +11,7 @@ export default async function TopMenu() {
   const iconColor = session ? "#F00" : "#FFF";
 
   return (
-    <div
-      className="h-[60px] bg-black/[0.6] fixed top-0 left-0 right-0 z-30 border-solid border-20 border-t border-b border-black
-        flex flex-row justify-between items-center "
-    >
+    <div className="navbar bg-black/[0.6] justify-between fixed top-0 z-30 border-solid border-black border-2">
       <div className="flex flex-row sm:ml-3 ml-0">
         <TopMenuItem title="Car catalogs" item="Cars" pageRef="/cars" />
         <TopMenuItem title="Shop catalogs" item="Shops" pageRef="/shops" />

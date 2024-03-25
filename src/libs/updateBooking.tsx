@@ -1,12 +1,17 @@
 import axios from "axios";
 
-export default async function updateBooking(token: string, id: string) {
+export default async function updateBooking(
+  token: string,
+  id: string,
+  data: object
+) {
   const response = await axios({
     method: "PUT",
     url: `${process.env.BACKEND_URL}/api/v1/bookings/${id}`,
     headers: {
       authorization: `Bearer ${token}`,
     },
+    data: data,
   });
 
   if (!(response.status >= 200 && response.status < 300)) {
