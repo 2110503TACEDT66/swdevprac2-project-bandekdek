@@ -14,7 +14,21 @@ export default function BookingList({
   bookings: Bookings;
   token: string;
 }) {
-  const [form, setForm] = useState({});
+  const [form, setForm] = useState<Booking>({
+    _id: "",
+    bookingDate: "",
+    user: "",
+    car: "",
+    daySpend: 0,
+    rentalProvider: {
+      _id: "",
+      name: "",
+      address: "",
+      cost: 0,
+      tel: "",
+    },
+    createdAt: "",
+  });
   const [editID, setEditID] = useState("");
   const router = useRouter();
 
@@ -37,7 +51,21 @@ export default function BookingList({
 
   function handleCancel() {
     setEditID("");
-    setForm({});
+    setForm({
+      _id: "",
+      bookingDate: "",
+      user: "",
+      car: "",
+      daySpend: 0,
+      rentalProvider: {
+        _id: "",
+        name: "",
+        address: "",
+        cost: 0,
+        tel: "",
+      },
+      createdAt: "",
+    });
   }
 
   async function handleSave(id: string) {
@@ -66,7 +94,7 @@ export default function BookingList({
               <h1 className="text-xl font-[600]">
                 Total Cost : {bookings.totalCost.toLocaleString()}
               </h1>
-            </header>{" "}
+            </header>
             <div className="w-full mt-4">
               <table className="table table-zebra">
                 <thead>

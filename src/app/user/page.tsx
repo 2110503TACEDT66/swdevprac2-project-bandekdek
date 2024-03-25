@@ -8,13 +8,13 @@ import BookingList from "@/components/BookingList";
 export default async function user() {
   const session = await getServerSession(authOptions);
   var profile, createdAt, bookings: Bookings;
-  if (session) {
+  if (!session) {
     // console.log(session);
-
-    bookings = await getBookings(session?.user.token);
-    profile = await getUserProfile(session.user.token);
-    createdAt = new Date(profile.data.createdAt);
+    return;
   }
+  bookings = await getBookings(session?.user.token);
+  profile = await getUserProfile(session.user.token);
+  createdAt = new Date(profile.data.createdAt);
 
   return (
     <>
