@@ -7,7 +7,7 @@ export default function Card ({carItem}:{carItem:Car}){
 
 
     return (
-        <div className="w-[200px] sm:w-[300px] m-2 h-[300px] rounded-lg shadow-lg text-white bg-black bg-opacity-40">
+        <div className="w-[500px] sm:w-[300px] m-2 h-[300px] rounded-lg shadow-lg text-white bg-black bg-opacity-40">
             <div className="w-full h-[70%] relative rounded-t-lg">
                 <Image src={carItem.img}
                     alt='Hospital Picture'

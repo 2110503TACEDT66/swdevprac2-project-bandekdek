@@ -18,6 +18,11 @@ interface Booking {
   rentalProvider: any;
   createdAt: string;
 }
+interface rentals {
+  count: number,
+  page: number,
+  data: rentalProvider[]
+}
 interface rentalProvider {
   _id: string;
   name: string;
