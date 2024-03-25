@@ -10,7 +10,7 @@ export default function page() {
 
     return (
 
-        <div className="h-[100vh] p-5 bg-gradient-to-tl from-red-600 to-slate-950">
+        <div className="h-[100vh] p-5 bg-gradient-to-tl from-red-600 from-10%  to-slate-950 to-90%">
           <button onClick={handleSignOut} id="submitButton" type="submit" className="mt-[70px] btn btn-wide btn-lg glass btn-error bg-red-600 ">
             Sign Out
           </button>

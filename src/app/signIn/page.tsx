@@ -34,9 +34,9 @@ export default function page() {
       <div className="mt-[70px] w-[60vw] sm:w-[30vw] mx-auto flex flex-col gap-7">
         <form
           onSubmit={onSubmit}
-          className="p-2 flex flex-col gap-5 rounded-xl glass bg-gradient-to-tl from-red-600  to-gray-700"
+          className="p-2 flex flex-col gap-5 rounded-xl glass bg-gradient-to-tl from-red-600 from-10%  to-slate-950 to-90%"
         >
-          <div className=" text-xl text-white">Login Form</div>
+          <div className=" text-2xl text-white">Login Form</div>
 
           <label className="input input-bordered flex items-center gap-2 m-2">
             <svg
