@@ -9,8 +9,9 @@ export default function page() {
       };
 
     return (
-        <div className="flex items-center justify-center gap-2 ">
-          <button onClick={handleSignOut} id="submitButton" type="submit" className="w-40 glass btn btn-error bg-red-600 mt-[70px]">
+
+        <div className="h-[100vh] p-5 bg-gradient-to-tl from-red-600 to-slate-950">
+          <button onClick={handleSignOut} id="submitButton" type="submit" className="mt-[70px] btn btn-wide btn-lg glass btn-error bg-red-600 ">
             Sign Out
           </button>
         </div>
