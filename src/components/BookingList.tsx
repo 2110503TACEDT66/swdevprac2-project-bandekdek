@@ -12,7 +12,15 @@ export default function BookingList({
   bookings: Bookings;
   token: string ;
 }) {
-  const [form, setForm] = useState({});
+  const [form, setForm] = useState<Booking>({
+    _id: '',
+    bookingDate: '',
+    user: '',
+    car: '',
+    daySpend: 0,
+    rentalProvider: {},
+    createdAt: '',}
+  );
   const [editID, setEditID] = useState("");
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -33,7 +41,15 @@ export default function BookingList({
 
   function handleCancel() {
     setEditID("");
-    setForm({});
+    setForm({
+      _id: '',
+      bookingDate: '',
+      user: '',
+      car: '',
+      daySpend: 0,
+      rentalProvider: {},
+      createdAt: '',
+    });
   }
 
   async function handleSave(id: string) {
