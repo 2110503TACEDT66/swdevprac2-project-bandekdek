@@ -1,8 +1,6 @@
 
 import { ClassNames } from "@emotion/react"
 import Image from "next/image"
-import ShopCardInformation from "./ShopCardInformation"
-
 
 export default function ShopCard({shopItem}:{shopItem:rentalProvider}){
     return (
@@ -15,19 +13,19 @@ export default function ShopCard({shopItem}:{shopItem:rentalProvider}){
                 />
             </div>
             <div className="w-full h-[10%] p-[10px] text-2xl font-bold">{shopItem.name}</div>
-            <table className="m-4">
-                <tbody>
-                    <tr>
-                        <td className="text-nowrap"><ShopCardInformation text="Cost :"/></td>
-                        <td className="pl-2 text-nowrap"><ShopCardInformation text={shopItem.cost + " Baht"}/></td>
+            <table className="mt-5 w-full">
+                <tbody className="bg-500">
+                    <tr className="">
+                        <td className="pl-3 text-nowrap"><div className="w-full h-[15%] pl-[10px] text-lg text-left">Cost :</div></td>
+                        <td className="pl-3 text-nowrap"><div className="w-full h-[15%] pl-[10px] text-lg text-left">{shopItem.cost + " Baht"}</div></td>
                     </tr>
-                    <tr>
-                        <td className="text-nowrap"><ShopCardInformation text="Address :"/></td>
-                        <td className="pl-2 leading-none"><ShopCardInformation text={shopItem.address}/></td>
+                    <tr className="">
+                        <td className="pl-3 text-nowrap"><div className="w-full h-[15%] pl-[10px] text-lg text-left">Address :</div></td>
+                        <td className="pl-3"><div className="w-full h-[15%] pl-[10px] text-lg text-left leading-tight">{shopItem.address}</div></td>
                     </tr>
-                    <tr>
-                        <td className="text-nowrap"><ShopCardInformation text="Tel. :"/></td>
-                        <td className="pl-2 text-nowrap"><ShopCardInformation text={shopItem.tel}/></td>
+                    <tr className="">
+                        <td className="pl-3 text-nowrap"><div className="w-full h-[15%] pl-[10px] text-lg text-left">Tel. :</div></td>
+                        <td className="pl-3 text-nowrap"><div className="w-full h-[15%] pl-[10px] text-lg text-left">{shopItem.tel}</div></td>
                     </tr>
                 </tbody>
             </table>
