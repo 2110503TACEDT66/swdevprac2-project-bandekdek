@@ -1,22 +1,25 @@
 import { authOptions } from "@/libs/auth";
+import getBookings from "@/libs/getBookings";
 import getUserProfile from "@/libs/getUserProfile";
 import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
+
+import BookingList from "@/components/BookingList";
 
 export default async function user() {
   const session = await getServerSession(authOptions);
-
-  var profile, createdAt;
+  var profile, createdAt, bookings: Bookings;
   if (session) {
-    console.log(session);
+    // console.log(session);
 
+    bookings = await getBookings(session?.user.token);
     profile = await getUserProfile(session.user.token);
     createdAt = new Date(profile.data.createdAt);
   }
+
   return (
     <>
       {session && (
-        <main className="p-5 m-5 bg-slate-100">
+        <main className="p-5 m-5 bg-slate-100 mt-[60px]">
           <div className="text-2xl">{profile.data.name}</div>
           <table className="border-separate table-auto border-spacing-2">
             <tbody>
@@ -36,6 +39,8 @@ export default async function user() {
           </table>
         </main>
       )}
+
+      <BookingList bookings={bookings} token={session?.user.token} />
     </>
   );
 }
