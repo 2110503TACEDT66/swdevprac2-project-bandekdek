@@ -8,17 +8,18 @@ import BookingList from "@/components/BookingList";
 export default async function user() {
   const session = await getServerSession(authOptions);
   var profile, createdAt, bookings: Bookings;
-  if (session) {
-    // console.log(session);
 
+  if (!session) {
+    // console.log(session);
+    return
+  }
     bookings = await getBookings(session?.user.token);
     profile = await getUserProfile(session.user.token);
     createdAt = new Date(profile.data.createdAt);
-  }
-
+    
   return (
     <>
-      {session && (
+      {session && ( 
         <main className="p-5 m-5 bg-slate-100 mt-[60px]">
           <div className="text-2xl">{profile.data.name}</div>
           <table className="border-separate table-auto border-spacing-2">
@@ -38,6 +39,7 @@ export default async function user() {
             </tbody>
           </table>
         </main>
+
       )}
 
       <BookingList bookings={bookings} token={session?.user.token} />

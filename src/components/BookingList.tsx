@@ -10,7 +10,7 @@ export default function BookingList({
   token,
 }: {
   bookings: Bookings;
-  token: string;
+  token: string ;
 }) {
   const [form, setForm] = useState({});
   const [editID, setEditID] = useState("");
