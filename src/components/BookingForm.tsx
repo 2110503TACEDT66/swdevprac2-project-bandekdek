@@ -8,7 +8,7 @@ import DateReserve from "./DateReserve";
 import { TextField } from "@mui/material";
 import addBooking from "@/libs/addBooking";
 import ReservationResult from "./ReservationResult";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function BookingForm({user, shops, cars, bookingsAmount}:{user:any, shops:rentals, cars:Array<Car>, bookingsAmount:number}) {
     const urlParams = useSearchParams();
@@ -19,6 +19,8 @@ export default function BookingForm({user, shops, cars, bookingsAmount}:{user:an
     const [ selectedCar, setSelectedCar ] = useState<string>(carParam?carParam:'None');
     const [ selectedShop, setSelectedShop ] = useState<string>(shopParam?shopParam:'None');
     const [ daySpend, setDaySpend ] = useState<number>(0);
+
+    const router = useRouter();
 
     const submitReservation = async (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -81,12 +83,14 @@ export default function BookingForm({user, shops, cars, bookingsAmount}:{user:an
             setResponseChildren(prevChildren => {
                 return prevChildren.filter((obj)=>obj.key !== key)
             });
+
+            router.refresh();
         }, 3000); // Adjust this duration as needed
     }
 
     return (
         <>
-            <div className="relative items-center bg-gray-200 h-[480px] w-[300px] sm:w-[500px] md:w-[600px] m-auto rounded-xl">
+            <div className="relative items-center bg-base-100 h-[480px] w-[300px] sm:w-[500px] md:w-[600px] m-auto rounded-xl">
                 <form onSubmit={(e)=>submitReservation(e)} className="pt-[35px] h-full">
                     <table className="w-full">
                         <tbody>
@@ -107,7 +111,7 @@ export default function BookingForm({user, shops, cars, bookingsAmount}:{user:an
                             <tr>
                             <td className="text-left pl-5"><div className="text-xl font-bold ml-5">Days Duration</div></td>
                             <td className="p-[15px]">
-                                <TextField type="number" className="w-[55px] md:w-[100px] text-center" onChange={(e)=>setDaySpend(parseInt(e.target.value))}></TextField>
+                                <TextField type="number" className="w-[55px] md:w-[100px] text-center bg-white" onChange={(e)=>setDaySpend(parseInt(e.target.value))}></TextField>
                             </td>
                             </tr>
                         </tbody>
