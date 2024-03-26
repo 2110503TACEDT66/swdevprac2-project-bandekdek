@@ -5,6 +5,8 @@ import { getServerSession } from "next-auth";
 
 import BookingList from "@/components/BookingList";
 import dayjs from "dayjs";
+import Loading from "../loading";
+import { Suspense } from "react";
 
 export default async function user() {
   const session = await getServerSession(authOptions);
@@ -19,7 +21,7 @@ export default async function user() {
   createdAt = new Date(profile.data.createdAt);
 
   return (
-    <>
+    <Suspense fallback={<Loading></Loading>}>
       {session && (
         <main className="mt-[70px] flex justify-center ">
           {/* <div className="text-2xl">{profile.data.name}</div>
@@ -55,7 +57,7 @@ export default async function user() {
                   </tr>
                   <tr>
                     <td>Member Since :</td>
-                    <td>{ dayjs(createdAt?.toString()).format('DD/MM/YYYY')}</td>
+                    <td>{dayjs(createdAt?.toString()).format("DD/MM/YYYY")}</td>
                   </tr>
                 </tbody>
               </table>
@@ -65,10 +67,9 @@ export default async function user() {
             </div>
           </div>
         </main>
-
       )}
 
       <BookingList bookings={bookings} token={session?.user.token} />
-    </>
+    </Suspense>
   );
 }
