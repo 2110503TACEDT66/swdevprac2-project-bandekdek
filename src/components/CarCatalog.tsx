@@ -1,6 +1,6 @@
 import Card from '@/components/Card'
 
-export default async function CarCatalog() {
+export default function CarCatalog() {
     const cars:Car[] = [{model:"Honda Civic", img:'/cars/civic.jpg', description:'Cool car'},
     { model:"Honda Accord", img:'/cars/accord.jpg', description:'Cool car'},
     { model:"Toyota Fortuner", img:'/cars/fortuner.jpg', description:'Cool car'},
