@@ -31,3 +31,4 @@ interface rentalProvider {
   cost: number;
   tel: string;
 }
+

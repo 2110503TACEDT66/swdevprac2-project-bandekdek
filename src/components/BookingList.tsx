@@ -23,6 +23,7 @@ export default function BookingList({
     daySpend: 0,
     rentalProvider: {
       _id: "",
+      picture: "",
       name: "",
       address: "",
       cost: 0,
@@ -31,6 +32,7 @@ export default function BookingList({
     createdAt: "",
   });
 
+  
   const [editID, setEditID] = useState("");
   const router = useRouter();
 
@@ -61,6 +63,7 @@ export default function BookingList({
       daySpend: 0,
       rentalProvider: {
         _id: "",
+        picture: "",
         name: "",
         address: "",
         cost: 0,
@@ -103,6 +106,7 @@ export default function BookingList({
                 <thead>
                   <tr>
                     <th className="text-sm">No.</th>
+                    <th className="text-sm">User</th>
                     <th className="text-sm">Car</th>
                     <th className="text-sm">bookingDate</th>
                     <th className="text-sm">daySpend</th>
@@ -118,7 +122,7 @@ export default function BookingList({
                         <div className="flex flex-col">
                           <label>Car</label>
                           <input
-                            value={form.car !== undefined ? form.car : item.car}
+                            value={form.car !== "" ? form.car : item.car}
                             onChange={(e) => handleChange(e)}
                             type="text"
                             placeholder="car..."
@@ -128,7 +132,7 @@ export default function BookingList({
                           <label>bookingDate</label>
                           <input
                             value={
-                              form.bookingDate !== undefined
+                              form.bookingDate !== ""
                                 ? form.bookingDate
                                 : item.bookingDate
                             }
@@ -141,7 +145,7 @@ export default function BookingList({
                           <label>daySpend</label>
                           <input
                             value={
-                              form.daySpend !== undefined
+                              form.daySpend !== 0
                                 ? form.daySpend
                                 : item.daySpend
                             }
@@ -154,7 +158,7 @@ export default function BookingList({
                           <label>createdAt</label>
                           <input
                             value={
-                              form.createdAt !== undefined
+                              form.createdAt !== ""
                                 ? form.createdAt
                                 : item.createdAt
                             }
@@ -167,7 +171,7 @@ export default function BookingList({
                           <label>Provider</label>
                           <input
                             value={
-                              form.rentalProvider !== undefined
+                              form.rentalProvider.name !== ""
                                 ? form.rentalProvider.name
                                 : item.rentalProvider.name
                             }
@@ -175,12 +179,12 @@ export default function BookingList({
                             type="text"
                             placeholder="Provider..."
                             name="Provider"
-                            className="px-4 py-2 border-2 rounded-md focus:outline-none focus:border-blue-500"
+                            className="px-4 py-2 border-2 rounded-md focus:outline-none focus:border-blue-500 bg-black text-white"
                           />
                           <label>Cost</label>
                           <input
                             value={
-                              form.rentalProvider !== undefined
+                              form.rentalProvider.cost !== 0
                                 ? form.rentalProvider.cost
                                 : item.rentalProvider.cost
                             }
@@ -188,11 +192,12 @@ export default function BookingList({
                             type="number"
                             placeholder="cost..."
                             name="cost"
-                            className="px-4 py-2 border-2 rounded-md focus:outline-none focus:border-blue-500"
+                            className="px-4 py-2 border-2 rounded-md focus:outline-none focus:border-blue-500  bg-black text-white"
                           />
                         </div>
                       ) : (
                         <>
+                          <td>{item.user}</td>
                           <td>{item.car}</td>
                           <td>{item.bookingDate}</td>
                           <td>{item.daySpend}</td>
