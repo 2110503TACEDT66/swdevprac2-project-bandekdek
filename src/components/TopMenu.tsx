@@ -2,9 +2,10 @@ import TopMenuItem from "./TopMenuItem";
 import HomeIcon from "@mui/icons-material/Home";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import MinorCrashIcon from "@mui/icons-material/MinorCrash";
-import LogoutIcon from '@mui/icons-material/Logout';
+import LogoutIcon from "@mui/icons-material/Logout";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/libs/auth";
+import Theme from "./Theme";
 
 export default async function TopMenu() {
   const session = await getServerSession(authOptions);
@@ -16,16 +17,15 @@ export default async function TopMenu() {
       <div className="flex flex-row sm:ml-3 ml-0">
         <TopMenuItem title="Car catalogs" item="Cars" pageRef="/cars" />
         <TopMenuItem title="Shop catalogs" item="Shops" pageRef="/shops" />
-
-
       </div>
       <div className="flex flex-row mr-3 sm:mr-0">
+        <Theme />
         <TopMenuItem
           title="Home page"
           item={<HomeIcon sx={{ color: "#FFF" }} fontSize="large" />}
           pageRef="/"
         />
-          {session ? (
+        {session ? (
           <TopMenuItem
             title="Sign out"
             item={<LogoutIcon sx={{ color: "#F00" }} fontSize="large" />}
