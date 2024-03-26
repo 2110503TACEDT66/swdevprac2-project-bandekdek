@@ -4,6 +4,7 @@ import getUserProfile from "@/libs/getUserProfile";
 import { getServerSession } from "next-auth";
 
 import BookingList from "@/components/BookingList";
+import dayjs from "dayjs";
 
 export default async function user() {
   const session = await getServerSession(authOptions);
@@ -20,7 +21,7 @@ export default async function user() {
   return (
     <>
       {session && (
-        <main className="mt-[70px] flex justify-center">
+        <main className="mt-[70px] flex justify-center ">
           {/* <div className="text-2xl">{profile.data.name}</div>
 
           <table className="border-separate table-auto border-spacing-2">
@@ -54,7 +55,7 @@ export default async function user() {
                   </tr>
                   <tr>
                     <td>Member Since :</td>
-                    <td>{createdAt?.toString()}</td>
+                    <td>{ dayjs(createdAt?.toString()).format('DD/MM/YYYY')}</td>
                   </tr>
                 </tbody>
               </table>
