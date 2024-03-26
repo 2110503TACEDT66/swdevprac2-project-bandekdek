@@ -1,3 +1,5 @@
+'use client'
+import { useState } from "react";
 import ShopCard from "./ShopCard";
 
 export default async function ShopCatalog({shopData}:{shopData:rentals}){

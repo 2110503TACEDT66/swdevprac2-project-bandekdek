@@ -1,25 +1,28 @@
 'use client'
 
 import dayjs, { Dayjs } from "dayjs";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useState } from "react";
 import ShopSelect from "./ShopSelect";
 import CarSelect from "./CarSelect";
 import DateReserve from "./DateReserve";
 import { TextField } from "@mui/material";
 import addBooking from "@/libs/addBooking";
 import ReservationResult from "./ReservationResult";
+import { useSearchParams } from "next/navigation";
 
 export default function BookingForm({userID, userToken, shops, cars}:{userID:string, userToken:string, shops:rentals, cars:Array<Car>}) {
-    const responseContainer = useRef<HTMLDivElement>(null)
+    const urlParams = useSearchParams();
+    const shopParam = urlParams.get('shop')
+    const carParam = urlParams.get('car')
     
     const [ bookDate, setBookDate ] = useState<Dayjs|null>(null);
-    const [ selectedCar, setSelectedCar ] = useState<string>('None');
-    const [ selectedShop, setSelectedShop ] = useState<string>('None');
+    const [ selectedCar, setSelectedCar ] = useState<string>(carParam?carParam:'None');
+    const [ selectedShop, setSelectedShop ] = useState<string>(shopParam?shopParam:'None');
     const [ daySpend, setDaySpend ] = useState<number>(0);
 
     const submitReservation = async (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        if (bookDate != null && selectedCar != 'None' && selectedShop != 'None' && daySpend > 0) {
+        if (bookDate != null && selectedCar != '' && selectedShop != '' && selectedCar != 'None' && selectedShop != 'None' && daySpend > 0) {
             console.log(`${bookDate} ${selectedCar} ${selectedShop} ${daySpend}`)
 
             console.log("ADDING BOOKING");
@@ -52,8 +55,6 @@ export default function BookingForm({userID, userToken, shops, cars}:{userID:str
 
         setResponseChildren([...responseChildren, result])
 
-        console.log(responseChildren);
-
         setTimeout(() => {
             setResponseChildren(prevChildren => {
                 return prevChildren.map(obj=>{
@@ -80,8 +81,6 @@ export default function BookingForm({userID, userToken, shops, cars}:{userID:str
             });
         }, 3000); // Adjust this duration as needed
     }
-
-    console.log("Rendered")
 
     return (
         <>
@@ -116,7 +115,7 @@ export default function BookingForm({userID, userToken, shops, cars}:{userID:str
                         </button>
                 </form>
             </div>
-            <div className="w-full h-full fixed top-0 pointer-events-none" ref={responseContainer}>
+            <div className="w-full h-full fixed top-0 pointer-events-none">
                 {
                     responseChildren.map((obj)=>( 
                         <ReservationResult transition={obj.isVisible} valid={obj.props.valid} text={obj.props.text}/>
