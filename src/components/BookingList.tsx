@@ -12,10 +12,9 @@ export default function BookingList({
   token,
 }: {
   bookings: Bookings;
-  token: string ;
+  token: string;
 }) {
   const [form, setForm] = useState<Booking>({
-
     _id: "",
     bookingDate: "",
     user: "",
@@ -32,7 +31,6 @@ export default function BookingList({
     createdAt: "",
   });
 
-  
   const [editID, setEditID] = useState("");
   const router = useRouter();
 
@@ -70,12 +68,13 @@ export default function BookingList({
         tel: "",
       },
       createdAt: "",
-
     });
   }
 
   async function handleSave(id: string) {
     try {
+      // console.log(form);
+
       await updateBooking(token, id, form);
       router.refresh();
       setEditID("");
@@ -83,6 +82,15 @@ export default function BookingList({
       console.log(error);
     }
   }
+
+  useEffect(() => {
+    if (editID !== "") {
+      const b = bookings.data.find(
+        (booking: Booking) => booking._id === editID
+      );
+      setForm(b || form);
+    }
+  }, [editID]);
 
   return (
     <>
