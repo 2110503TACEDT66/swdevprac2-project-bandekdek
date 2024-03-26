@@ -58,7 +58,7 @@ export default function BookingForm({userID, userToken, shops, cars}:{userID:str
                     </tr>
                 </tbody>
                 </table>
-                <button className="mb-[25px] hover:scale-105 hover:shadow-2xl absolute bottom-0 left-[50%] -translate-x-1/2 ml-auto text-2xl rounded-md bg-red-500 hover:bg-red-800 px-8 py-[2%] shadow-sm text-white" >
+                <button className="transition mb-[25px] hover:scale-110 hover:shadow-2xl absolute bottom-0 left-[50%] -translate-x-1/2 ml-auto text-2xl rounded-md bg-red-500 hover:bg-red-800 px-8 py-[2%] shadow-sm text-white" >
                     Submit
                 </button>
         </form>
