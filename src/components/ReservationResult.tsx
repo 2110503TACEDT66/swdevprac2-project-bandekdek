@@ -1,7 +1,13 @@
-export default function ReservationResult() {
+export default function ReservationResult({valid, text, transition}:{valid:boolean, text:string, transition:boolean}) {
+    const color:string = valid ? "green":"red"
+    console.log(color);
+    
+    const istransition = transition?"-translate-x-[350px]":""
+
     return (
-        <div className="transition duration-150 hover:scale-105 block fixed z-40 h-[75px] w-[25%] mt-[12%] top-0 right-0 bg-white">
-            
+        <div className={`rounded-xl delay-2000 transition ${istransition} delay-0 ease-in-out duration-300 opacity-70 fixed z-40 h-[75px] w-[350px] mt-[200px] top-0 right-[-350px] bg-black`}>
+            <div className={`bg-${color}-600 h-[10%] w-full mt-[1vh]`}></div>
+            <div className="grid w-full h-[50px] items-center text-center text-lg text-white text-nowrap">{text?text:"Unknown Error"}</div>
         </div>
     )
 }
