@@ -100,7 +100,7 @@ export default function BookingList({
       {bookings && (
         <>
           <header>
-            <h1 className="text-xl font-[700]">
+            <h1 className="text-xl font-[700] mt-10">
               Booking Count : {bookings.count}
             </h1>
             <h1 className="text-xl font-[600]">

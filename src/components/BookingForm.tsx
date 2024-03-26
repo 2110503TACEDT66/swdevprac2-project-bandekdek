@@ -10,7 +10,7 @@ import addBooking from "@/libs/addBooking";
 import ReservationResult from "./ReservationResult";
 import { useSearchParams } from "next/navigation";
 
-export default function BookingForm({userID, userToken, shops, cars}:{userID:string, userToken:string, shops:rentals, cars:Array<Car>}) {
+export default function BookingForm({user, shops, cars, bookingsAmount}:{user:any, shops:rentals, cars:Array<Car>, bookingsAmount:number}) {
     const urlParams = useSearchParams();
     const shopParam = urlParams.get('shop')
     const carParam = urlParams.get('car')
@@ -22,22 +22,24 @@ export default function BookingForm({userID, userToken, shops, cars}:{userID:str
 
     const submitReservation = async (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        if (bookDate != null && selectedCar != '' && selectedShop != '' && selectedCar != 'None' && selectedShop != 'None' && daySpend > 0) {
+        if (user.data.role !== 'admin' && bookingsAmount >= 3) {
+            handleSubmitResponse({success: false, text: "Maximum 3 bookings per user"});
+        } else if (bookDate != null && selectedCar != '' && selectedShop != '' && selectedCar != 'None' && selectedShop != 'None' && daySpend > 0) {
             console.log(`${bookDate} ${selectedCar} ${selectedShop} ${daySpend}`)
 
             console.log("ADDING BOOKING");
                 
-            const responseData = await addBooking(selectedShop, userToken, {
+            const responseData = await addBooking(selectedShop, user.token, {
                 bookingDate: bookDate,
-                user: userID,
+                user: user.data._id,
                 car: selectedCar,
                 daySpend: daySpend,
                 rentalProvider: selectedShop,
             })
                 
-            handleSubmitResponse(responseData)
+            handleSubmitResponse({...responseData, text: "Created reservation successfully"})
         } else {
-            handleSubmitResponse({success: false});
+            handleSubmitResponse({success: false, text: "Failed to create reservation"});
         }
     }
 
@@ -48,9 +50,9 @@ export default function BookingForm({userID, userToken, shops, cars}:{userID:str
         let result, key = responseChildren.length;
 
         if (responseData.success == true) {
-            result = {key: key, isVisible: false, props: {valid: true, text: "Created reservation successfully"}}
+            result = {key: key, isVisible: false, props: {valid: true, text: responseData.text}}
         } else {
-            result = {key: key, isVisible: false, props: {valid: false, text: "Failed to create reservation"}}
+            result = {key: key, isVisible: false, props: {valid: false, text: responseData.text}}
         }
 
         setResponseChildren([...responseChildren, result])
