@@ -1,10 +1,10 @@
 import Card from '@/components/Card'
 
 export default async function CarCatalog() {
-    const cars:Car[] = [{model:"Honda Civic", img:'/cars/civic.jpg', dayRate:1000},
-    { model:"Honda Accord", img:'/cars/accord.jpg', dayRate:1200},
-    { model:"Toyota Fortuner", img:'/cars/fortuner.jpg', dayRate:1500},
-    { model:"Tesla Model 3", img:'/cars/tesla.jpg', dayRate:2000}]
+    const cars:Car[] = [{model:"Honda Civic", img:'/cars/civic.jpg', description:'Cool car'},
+    { model:"Honda Accord", img:'/cars/accord.jpg', description:'Cool car'},
+    { model:"Toyota Fortuner", img:'/cars/fortuner.jpg', description:'Cool car'},
+    { model:"Tesla Model 3", img:'/cars/tesla.jpg', description:'Cool car'}]
 
     return(
          <div className='p-10'>

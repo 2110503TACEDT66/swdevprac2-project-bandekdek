@@ -1,7 +1,7 @@
 interface Car {
   model: string;
   img: string;
-  dayRate: number;
+  description:string;
 }
 
 interface Bookings {
