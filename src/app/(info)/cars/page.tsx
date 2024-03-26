@@ -1,4 +1,4 @@
-import Loading from "@/app/loading";
+import Loading from "@/components/CustomLoading";
 import CarCatalog from "@/components/CarCatalog";
 import { Suspense } from "react";
 

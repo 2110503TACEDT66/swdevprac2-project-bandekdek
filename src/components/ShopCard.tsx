@@ -2,6 +2,7 @@
 import { ClassNames } from "@emotion/react"
 import Image from "next/image"
 import Link from "next/link"
+import AddInformationButton from "./AddInformationButton"
 
 export default function ShopCard({shopItem}:{shopItem:rentalProvider}){
     return (
@@ -30,11 +31,9 @@ export default function ShopCard({shopItem}:{shopItem:rentalProvider}){
                     </tr>
                 </tbody>
             </table>
-            <Link href={`/reservation?id=${shopItem._id}`} className="absolute left-0 bottom-0 ">
-                <button className="rounded-md bg-red-500 hover:bg-red-800 m-3 px-2.5 py-2 shadow-sm text-white">
-                    Select this shop
-                </button>
-            </Link>
+            <div className="absolute left-0 bottom-0 m-3">
+                <AddInformationButton text="Select this shop"/>
+            </div>
         </div>
     )
 }

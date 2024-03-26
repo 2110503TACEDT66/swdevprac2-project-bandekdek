@@ -1,6 +1,6 @@
 import getShops from "@/libs/getShops";
 import ShopCatalog from "@/components/ShopCatalog";
-import Loading from "@/app/loading";
+import Loading from "@/components/CustomLoading";
 import { Suspense } from "react";
 
 export default async function shops() {

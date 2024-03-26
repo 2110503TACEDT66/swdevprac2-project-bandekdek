@@ -6,7 +6,7 @@ import { revalidateTag } from "next/cache";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Suspense, useRef, useState } from "react";
-import Loading from "../loading";
+import Loading from "../../components/CustomLoading";
 
 export default function page() {
   const router = useRouter();

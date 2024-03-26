@@ -5,7 +5,7 @@ import { getServerSession } from "next-auth";
 
 import BookingList from "@/components/BookingList";
 import dayjs from "dayjs";
-import Loading from "../loading";
+import Loading from "../../components/CustomLoading";
 import { Suspense } from "react";
 
 export default async function user() {

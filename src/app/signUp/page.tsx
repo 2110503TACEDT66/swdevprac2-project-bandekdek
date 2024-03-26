@@ -4,7 +4,7 @@ import { ChangeEvent, FormEvent, Suspense, useState } from "react";
 import axios from "axios";
 import userSignUp from "@/libs/userSignUp";
 import Link from "next/link";
-import Loading from "../loading";
+import Loading from "../../components/CustomLoading";
 
 const RegistrationForm = () => {
   const [isFill, setIsFill] = useState(true);
