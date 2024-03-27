@@ -109,8 +109,8 @@ export default function BookingList({
           </header>
           <div className="w-[80vw] mt-4 mx-auto overflow-auto rounded-lg shadow">
             <table className="table table-zebra">
-              <thead>
-                <tr>
+              <thead >
+                <tr className="">
                   <th className="text-sm">No.</th>
                   <th className="text-sm">User</th>
                   <th className="text-sm">Car</th>
@@ -120,9 +120,9 @@ export default function BookingList({
                   <th className="text-sm">Cost</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-300">
+              <tbody className="">
                 {bookings.data.map((item: Booking, idx) => (
-                  <tr className="font-[500]" key={idx}>
+                  <tr className="" key={idx}>
                     <th>{idx + 1}</th>
                     {editID === item._id ? (
                       <div className="flex flex-col">
@@ -149,7 +149,7 @@ export default function BookingList({
                           className="px-4 py-2 border-2 rounded-md focus:outline-none focus:border-blue-500"
                         />
                         <label>daySpend</label>
-                        <input
+                        <input min={1}
                           value={
                             form.daySpend !== 0 ? form.daySpend : item.daySpend
                           }
@@ -186,7 +186,7 @@ export default function BookingList({
                           className="px-4 py-2 border-2 rounded-md focus:outline-none focus:border-blue-500 bg-black text-white"
                         />
                         <label>Cost</label>
-                        <input
+                        <input min={0}
                           value={
                             form.rentalProvider.cost !== 0
                               ? form.rentalProvider.cost

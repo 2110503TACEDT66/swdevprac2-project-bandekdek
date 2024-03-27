@@ -15,7 +15,9 @@ export default function page() {
   const [isLogin, setIsLogin] = useState(true);
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsLogin(true);
+    if(!email.current || !pass.current){
+      setIsLogin(false);
+    } 
     const res = await signIn("credentials", {
       email: email.current,
       password: pass.current,
@@ -27,6 +29,7 @@ export default function page() {
     } else {
       setIsLogin(false);
       console.log("Error /signIn/page.tsx" + res.error);
+      // alert("You entered wrong email or password!");
     }
   };
 
@@ -102,6 +105,28 @@ export default function page() {
             </Link>
           </div>
         </div>
+        {!isLogin && (
+              <div
+                role="alert"
+                className="text-red-600 mt-2 bg-black rounded-md px-4 py-2 flex items-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="inline-block h-5 w-5 mr-1 align-middle text-red-600"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM9 4a1 1 0 012 0v5a1 1 0 11-2 0V4zm2 10a1 1 0 11-2 0 1 1 0 012 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span className="align-middle text-white">
+                  Warning: Please fill in valid email and password.
+                </span>
+              </div>
+            )}
       </div>
     </Suspense>
   );

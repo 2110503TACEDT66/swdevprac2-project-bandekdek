@@ -26,7 +26,8 @@ export default function Banner() {
       {session ? (
         <div id="username"
           className="z-30 absolute top-20
-                 right-10 font-bold text-white text-2xl"
+                 right-10 font-bold text-white text-2xl" 
+          data-testid="welcome"
         >
           Welcome {session.user.data.name}
 

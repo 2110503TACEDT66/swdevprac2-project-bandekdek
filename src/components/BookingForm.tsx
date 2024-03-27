@@ -111,7 +111,7 @@ export default function BookingForm({user, shops, cars, bookingsAmount}:{user:an
                             <tr>
                             <td className="text-left pl-5"><div className="text-xl font-bold ml-5">Days Duration</div></td>
                             <td className="p-[15px]">
-                                <TextField type="number" className="w-[55px] md:w-[100px] text-center bg-white" onChange={(e)=>setDaySpend(parseInt(e.target.value))}></TextField>
+                                <input min={1} type="number" className="md:w-[100px] text-lg text-center bg-white border rounded-md h-[3em] w-[15vw] text-black border-black border-solid" onChange={(e)=>setDaySpend(parseInt(e.target.value))}/>
                             </td>
                             </tr>
                         </tbody>

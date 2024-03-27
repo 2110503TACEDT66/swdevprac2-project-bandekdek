@@ -42,10 +42,10 @@ export default async function user() {
                 </tr>
               </tbody>
             </table> */}
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-96 bg-base-100 shadow-xl border-2 border-solid border-base-800 ">
               <div className="card-body">
                 <h2 className="card-title">Your Profile!</h2>
-                <table className="border-separate table-auto border-spacing-2">
+                <table className="border-separate table-auto border-spacing-2  ">
                   <tbody>
                     <tr>
                       <td>Email :</td>
