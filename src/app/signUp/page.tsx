@@ -5,8 +5,12 @@ import axios from "axios";
 import userSignUp from "@/libs/userSignUp";
 import Link from "next/link";
 import Loading from "../../components/CustomLoading";
+import { useRouter } from "next/navigation";
+
+
 
 const RegistrationForm = () => {
+  const router = useRouter();
   const [isFill, setIsFill] = useState(true);
   const [formData, setFormData] = useState({
     name: "",
@@ -37,6 +41,9 @@ const RegistrationForm = () => {
     try {
       const response = await userSignUp(formData);
       console.log("Registration successful:", response);
+      router.push("/");
+      router.refresh();
+      alert("Registration Successful!");
     } catch (error) {
       console.error("Registration failed:", error);
     }
